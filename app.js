@@ -12,11 +12,8 @@ app.listen(3000, function(res) {
 
 app.get("/", function(req, res) {
   var today = new Date();
-  var day = "";
-  if(today.getDay() === 0 || today.getDay() === 6) {
-    day = "Weekend";
-  } else {
-    day = "Weekday";
-  }
+  var dayList = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  var day = dayList[today.getDay()];
+
   res.render("list", {kindOfDay: day});
 })
