@@ -5,6 +5,10 @@
     <title>What is today?</title>
   </head>
   <body>
-    <h1>Have a great <%= kindOfDay %></h1>
+    <% if(kindOfDay === "Saturday" || kindOfDay === "Sunday") { %>
+      <h1 style = "color: blue">Have a great <%= kindOfDay %></h1>
+    <% } else { %>
+      <h1 style = "color: green">Have a great <%= kindOfDay %></h1>
+    <% } %>
   </body>
 </html>
