@@ -16,11 +16,16 @@
       <button type="submit" name="button">Add</button>
     </form>
     <ul>
-      <li>Go for a walk</li>
+      <!-- <li>Go for a walk</li>
       <li>Enjoy learning new things</li>
       <li>Buy foods</li>
       <li>Enjoy cooking</li>
       <li>Enjoy the meal</li>
+       -->
+
+      <% for(var i = 0; i< taskItems.length; i++) { %>
+        <li><%= taskItems[i] %></li>
+      <% } %>
     </ul>
   </body>
 </html>
