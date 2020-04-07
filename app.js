@@ -9,11 +9,13 @@ app.set("view engine", "ejs");
 // Global variables
 var tasks = [];
 
+app.use(bodyParser.urlencoded({extended: true}));
+
+app.use(express.static("public"));
+
 app.listen(3000, function(res) {
   console.log("Server is running on port 3000.");
 })
-
-app.use(bodyParser.urlencoded({extended: true}));
 
 app.get("/", function(req, res) {
   var today = new Date();

@@ -3,29 +3,35 @@
   <head>
     <meta charset="utf-8">
     <title>What is today?</title>
+    <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
-    <% if(kindOfDay === "Saturday" || kindOfDay === "Sunday") { %>
+    <!-- <% if(kindOfDay === "Saturday" || kindOfDay === "Sunday") { %>
       <h1 style = "color: blue">Have a great <%= kindOfDay %></h1>
     <% } else { %>
       <h1 style = "color: green">Have a great <%= kindOfDay %></h1>
-    <% } %>
+    <% } %> -->
     <!-- <h1><%= kindOfDay %></h1> -->
-    <form action="/" method="post">
-      <input type="text" name="newTask" value="">
-      <button type="submit" name="button">Add</button>
-    </form>
-    <ul>
-      <!-- <li>Go for a walk</li>
-      <li>Enjoy learning new things</li>
-      <li>Buy foods</li>
-      <li>Enjoy cooking</li>
-      <li>Enjoy the meal</li>
-       -->
+
+    <div class="box" id="heading">
+      <h1><%= kindOfDay %></h1>
+    </div>
+
+    <div class="box">
 
       <% for(var i = 0; i< taskItems.length; i++) { %>
-        <li><%= taskItems[i] %></li>
+        <div class="item">
+          <input type="checkbox">
+          <p><%= taskItems[i] %></p>
+        </div>
       <% } %>
-    </ul>
+
+      <form action="/" method="post" class="item">
+        <input type="text" name="newTask" value="" placeholder="New task">
+        <button type="submit" name="button">+</button>
+      </form>
+
+    </div>
+
   </body>
 </html>
