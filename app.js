@@ -23,7 +23,7 @@ app.listen(3000, function(res) {
 
 app.get("/", function(req, res) {
 
-  var day = date.getDay();
+  var day = date.getDate();
 
   res.render("list", {listTitle: day, taskItems: tasks});
 })
