@@ -8,6 +8,7 @@ app.set("view engine", "ejs");
 
 // Global variables
 var tasks = [];
+var workTasks = [];
 
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -25,11 +26,26 @@ app.get("/", function(req, res) {
   var options = { weekday: "long", month: "short", day: "numeric"};
   var day = today.toLocaleDateString("en-US", options);
 
-  res.render("list", {kindOfDay: day, taskItems: tasks});
+  res.render("list", {listTitle: day, taskItems: tasks});
 })
 
 app.post("/", function(req, res) {
+
+  console.log(req.body);
+
   var task = req.body.newTask;
-  tasks.push(task);
-  res.redirect("/");
+
+
+  if(req.body.list === "Work") {
+    workTasks.push(task);
+    res.redirect("/work");
+  } else {
+    tasks.push(task);
+    res.redirect("/");
+  }
+
+})
+
+app.get("/work", function(req, res) {
+  res.render("list", {listTitle: "Work", taskItems:workTasks});
 })
