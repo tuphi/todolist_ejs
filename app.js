@@ -1,5 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const date = require(__dirname + "/date.js");
+
+console.log(date);
 
 const app = express();
 
@@ -19,12 +22,8 @@ app.listen(3000, function(res) {
 })
 
 app.get("/", function(req, res) {
-  var today = new Date();
-  var dayList = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  var day = dayList[today.getDay()];
 
-  var options = { weekday: "long", month: "short", day: "numeric"};
-  var day = today.toLocaleDateString("en-US", options);
+  var day = date.getDay();
 
   res.render("list", {listTitle: day, taskItems: tasks});
 })
