@@ -49,3 +49,7 @@ app.post("/", function(req, res) {
 app.get("/work", function(req, res) {
   res.render("list", {listTitle: "Work", taskItems:workTasks});
 })
+
+app.get("/about", function(req, res) {
+  res.render("about");
+})

@@ -1,31 +1,23 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>What is today?</title>
-    <link rel="stylesheet" href="css/styles.css">
-  </head>
-  <body>
+<%- include("header") -%>
 
-    <div class="box" id="heading">
-      <h1><%= listTitle %></h1>
-    </div>
+<div class="box" id="heading">
+  <h1><%= listTitle %></h1>
+</div>
 
-    <div class="box">
+<div class="box">
 
-      <% for(var i = 0; i< taskItems.length; i++) { %>
-        <div class="item">
-          <input type="checkbox">
-          <p><%= taskItems[i] %></p>
-        </div>
-      <% } %>
+  <% for(var i = 0; i< taskItems.length; i++) { %>
+  <div class="item">
+    <input type="checkbox">
+    <p><%= taskItems[i] %></p>
+  </div>
+  <% } %>
 
-      <form action="/" method="post" class="item">
-        <input type="text" name="newTask" value="" placeholder="New task">
-        <button type="submit" name="list" value=<%= listTitle %> >+</button>
-      </form>
+  <form action="/" method="post" class="item">
+    <input type="text" name="newTask" value="" placeholder="New task">
+    <button type="submit" name="list" value=<%= listTitle %>>+</button>
+  </form>
 
-    </div>
+</div>
 
-  </body>
-</html>
+<%- include("footer") -%>
